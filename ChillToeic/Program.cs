@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using ChillToeic.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<ChillToeicContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ChillToeicContext") ?? throw new InvalidOperationException("Connection string 'ChillToeicContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -22,6 +27,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=HomePage}/{id?}");
 
 app.Run();

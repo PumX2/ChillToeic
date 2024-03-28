@@ -13,7 +13,7 @@ namespace ChillToeic.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult HomePage()
         {
             return View();
         }
@@ -22,6 +22,18 @@ namespace ChillToeic.Controllers
         {
             return View();
         }
+
+        public IActionResult Course()
+        {
+            return View();
+        }
+
+        public IActionResult MyCourse()
+        {
+            return View();
+        }
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
